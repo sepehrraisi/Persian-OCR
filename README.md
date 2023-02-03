@@ -180,7 +180,7 @@ After installing the requirements you can use it by running the `ocr.py` file:
 ```sh
 python ./ocr.py -i <inputfile> -o <outputfile>     
 ```
-Then it will write the results to `result.txt`
+Then it will write the results to `outputfile`
 
 [//]: # (_For more examples, please refer to the [Documentation]&#40;https://example.com&#41;_)
 
