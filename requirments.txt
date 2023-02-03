@@ -1,0 +1,12 @@
+autocorrect==2.6.1
+click==8.1.3
+joblib==1.2.0
+nltk==3.8.1
+numpy==1.24.1
+opencv-python==4.7.0.68
+packaging==23.0
+Pillow==9.4.0
+pytesseract==0.3.10
+regex==2022.10.31
+textblob==0.17.1
+tqdm==4.64.1
