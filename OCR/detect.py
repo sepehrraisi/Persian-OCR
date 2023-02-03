@@ -97,6 +97,7 @@ def main(inputfile, langs, mode):
     # img = cv2.normalize(img, cv2norm_img, 0, 255, cv2.NORM_MINMAX)
     # img = cv2.threshold(img, 100, 255, cv2.THRESH_BINARY)[1]
     # img = cv2.GaussianBlur(img, (1, 1), 0)
+    custom_config = r'-l fas --psm 6"'
     if langs == "fa":
         if mode == "t":
             custom_config = r'-l fas --psm 6 -c tessedit_char_blacklist="۰١۲۳۴۵۶۷۸۹«»1234567890#"'
@@ -118,8 +119,8 @@ def main(inputfile, langs, mode):
     text = pytesseract.image_to_string(img, config=custom_config)
     # print(i)
     # print(text)
-    # with io.open('data.txt', 'w', encoding='utf8') as f:
-    #     f.write(text)
+    with io.open('result.txt', 'w', encoding='utf8') as f:
+        f.write(text)
 
     # text = str(text.encode("utf-8"))
     # # open text file
@@ -146,15 +147,15 @@ def main(inputfile, langs, mode):
     # print(text3)
     # text4 = pytesseract.image_to_string(canny, config=custom_config)
     # print(text4)
-    # return text
-    print(text)
-    cv2.imshow('image window', img)
+    # return convert(text)
+    # print(text)
+    # cv2.imshow('image window', img)
     # add wait key. window waits until user presses a key
-    cv2.waitKey(0)
+    # cv2.waitKey(0)
     # and finally destroy/close all open windows
-    cv2.destroyAllWindows()
+    # cv2.destroyAllWindows()
 
 
 
 if __name__ == "__main__":
-    print(main("../Inputs/1.jpg", "fa", "t"))
+    print(main("Inputs/1.jpg", "fa", "t"))
