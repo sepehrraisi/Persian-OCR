@@ -68,7 +68,7 @@ def match_template(image, template):
 # filename = '3.png'
 # img = np.array(Image.open(filename))
 
-def main(inputfile, langs, mode):
+def main(inputfile, langs="faen", mode="tn"):
     img = cv2.imread(inputfile)
     # img = cv2.medianBlur(img, 5)
     # ret, th1 = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY)
