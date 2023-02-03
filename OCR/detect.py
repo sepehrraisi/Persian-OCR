@@ -65,7 +65,7 @@ def match_template(image, template):
     return cv2.matchTemplate(image, template, cv2.TM_CCOEFF_NORMED)
 
 
-def main(inputfile, langs="faen", mode="t"):
+def main(inputfile,outputfile="result.txt", langs="faen", mode="t"):
     img = cv2.imread(inputfile)
     gray = get_grayscale(img)
 ## Different Modes for image proccessing
