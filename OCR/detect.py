@@ -98,7 +98,7 @@ def main(inputfile,outputfile="result.txt", langs="faen", mode="t"):
     text = pytesseract.image_to_string(img, config=custom_config)
 
     ## Write Results to Result.txt with UTF-8 Encoding.
-    with io.open('result.txt', 'w', encoding='utf8') as f:
+    with io.open(outputfile, 'w', encoding='utf8') as f:
         f.write(text)
 
 ## Spell Checking (STILL IN PROGRESS)
