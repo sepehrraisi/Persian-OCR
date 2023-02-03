@@ -29,7 +29,7 @@ def words(text): return re.findall(r'\w+', text.lower())
 # c = pickle.load(open('./3.pkl', 'rb'))
 # WORDS = a + b + c
 # pickle.dump(WORDS, open('F.pkl', 'wb'))
-WORDS = pickle.load(open('./F.pkl', 'rb'))
+WORDS = pickle.load(open('../Dictionary/Database.pkl', 'rb'))
 def P(word, N=sum(WORDS.values())):
     "Probability of `word`."
     return WORDS[word] / N

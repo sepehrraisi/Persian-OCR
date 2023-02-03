@@ -2,7 +2,7 @@ from PIL import Image
 import pytesseract
 import numpy as np
 import cv2
-import spell
+# from Dictionary import spell_check
 import io
 
 # get grayscale image
@@ -75,24 +75,24 @@ def main(inputfile, langs, mode):
     # th2 = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 2)
     # img = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
     # ret3,img = cv2.threshold(img,200,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
-    img = cv2.copyMakeBorder(img, 20, 20, 20, 20, cv2.BORDER_CONSTANT, value=[255, 255, 255])
-    table_c = cv2.GaussianBlur(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY), (3, 3), 0, 0)
+    # img = cv2.copyMakeBorder(img, 20, 20, 20, 20, cv2.BORDER_CONSTANT, value=[255, 255, 255])
+    # table_c = cv2.GaussianBlur(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY), (3, 3), 0, 0)
     # # Threshold
-    img = table_c
+    # img = table_c
     # _, img = cv2.threshold(table_c, 180, 255, cv2.THRESH_BINARY, cv2.THRESH_OTSU)
     # cv2norm_img = np.zeros((img.shape[0], img.shape[1]))
     # img = cv2.normalize(img, cv2norm_img, 0, 255, cv2.NORM_MINMAX)
     # img = cv2.threshold(img, 100, 255, cv2.THRESH_BINARY)[1]
     # img = cv2.GaussianBlur(img, (1, 1), 0)
 
-    # gray = get_grayscale(img)
+    gray = get_grayscale(img)
     # gray = deskew(gray)
     # gray = erode(gray)
     # thresh = thresholding(gray)
     # thresh = remove_noise(gray)
     # opening = opening(gray)
     # canny = canny(gray)
-    # img = gray
+    img = gray
     # cv2norm_img = np.zeros((img.shape[0], img.shape[1]))
     # img = cv2.normalize(img, cv2norm_img, 0, 255, cv2.NORM_MINMAX)
     # img = cv2.threshold(img, 100, 255, cv2.THRESH_BINARY)[1]
@@ -157,4 +157,4 @@ def main(inputfile, langs, mode):
 
 
 if __name__ == "__main__":
-    print(main("Inputs/132.jpg", "fa", "t"))
+    print(main("../Inputs/1.jpg", "fa", "t"))
