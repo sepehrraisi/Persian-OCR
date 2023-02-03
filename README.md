@@ -71,10 +71,14 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+
+[//]: # (    <li><a href="#contributing">Contributing</a></li>)
+
+[//]: # (    <li><a href="#license">License</a></li>)
+
+[//]: # (    <li><a href="#contact">Contact</a></li>)
+
+[//]: # (    <li><a href="#acknowledgments">Acknowledgments</a></li>)
   </ol>
 </details>
 
@@ -83,72 +87,86 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<a  align="center" href="https://github.com/sepehrraisi/Persian-OCR">
-    <img src="README/images/screenshot.png" alt="ScreenShot">
-</a>
+[//]: # (<a  align="center" href="https://github.com/sepehrraisi/Persian-OCR">)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+[//]: # (    <img src="README/images/screenshot.png" alt="ScreenShot">)
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+[//]: # (</a>)
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+As I was looking for a good Persian OCR, I've found out that there is no good open-source project that features Persian language for OCR.
+So I've started a project to create a simple Persian OCR to achieve the missing.
+ 
+What I have Done:
+* Optimize pytesseract for persian by testing different configs.
+* Image Optimization for low-res images to improve accuracy significantly.
+* Using a Persian Spell-Checking to improve accuracy.
 
-Use the `BLANK_README.md` to get started.
+Of course, This project isn't perfect and i'm still working on it to improve accuracy and speed. But I hope this project helps other people like me to have a good base for Persian OCR.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+I have used python to build this project.
+Two of the most useful modules in this project were pytesseract and opencv.
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+[//]: # (* [![Next][Next.js]][Next-url])
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[//]: # (* [![React][React.js]][React-url])
+
+[//]: # (* [![Vue][Vue.js]][Vue-url])
+
+[//]: # (* [![Angular][Angular.io]][Angular-url])
+
+[//]: # (* [![Svelte][Svelte.dev]][Svelte-url])
+
+[//]: # (* [![Laravel][Laravel.com]][Laravel-url])
+
+[//]: # (* [![Bootstrap][Bootstrap.com]][Bootstrap-url])
+
+[//]: # (* [![JQuery][JQuery.com]][JQuery-url])
+
+[//]: # (<p align="right">&#40;<a href="#readme-top">back to top</a>&#41;</p>)
 
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+This is a simple instruction to start using this project.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+You need to install pytesseract on your device:
+* Ubuntu
   ```sh
-  npm install npm@latest -g
+   sudo apt-get install tesseract-ocr
+  ```
+You need to add Persian Language to tesseract:
+* Ubuntu
+  ```sh
+   sudo apt-get install tesseract-ocr-fas
   ```
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+Now that you've installed tesseract we can move on with Persian-OCR:_
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/sepehrraisi/Persian-OCR && \
+   cd Persian-OCR
    ```
-3. Install NPM packages
+2. Create a Virtual Environment for python and Source it:
    ```sh
-   npm install
+   python3 -m venv venv && \
+   source ./venv/bin/activate
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+3. Install Python modules `requirments.txt`
+   ```sh
+   pip install -r requirments.txt
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -158,9 +176,13 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+After installing the requirements you can use it by running the `ocr.py` file:
+```sh
+python ./ocr.py -i <inputfile>        
+```
+Then it will write the results to `result.txt`
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+[//]: # (_For more examples, please refer to the [Documentation]&#40;https://example.com&#41;_)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -169,13 +191,14 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [x] Use pytesseract to extract text
+- [x] Improve accuracy by simple opencv features
+- [ ] Improve accuracy by UpScaling the images
+- [ ] Add modular capabilities to improve functionality
+- [ ] Add Table recognition
+- [x] Multi-language Support
+    - [x] Persian
+    - [x] English
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
@@ -183,59 +206,90 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 
 
 
-<!-- CONTRIBUTING -->
-## Contributing
+[//]: # (<!-- CONTRIBUTING -->)
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+[//]: # (## Contributing)
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+[//]: # ()
+[//]: # (Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.)
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+[//]: # ()
+[//]: # (If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[//]: # (Don't forget to give the project a star! Thanks again!)
 
+[//]: # ()
+[//]: # (1. Fork the Project)
 
+[//]: # (2. Create your Feature Branch &#40;`git checkout -b feature/AmazingFeature`&#41;)
 
-<!-- LICENSE -->
-## License
+[//]: # (3. Commit your Changes &#40;`git commit -m 'Add some AmazingFeature'`&#41;)
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+[//]: # (4. Push to the Branch &#40;`git push origin feature/AmazingFeature`&#41;)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[//]: # (5. Open a Pull Request)
 
+[//]: # ()
+[//]: # (<p align="right">&#40;<a href="#readme-top">back to top</a>&#41;</p>)
 
+[//]: # ()
+[//]: # ()
+[//]: # ()
+[//]: # (<!-- LICENSE -->)
 
-<!-- CONTACT -->
-## Contact
+[//]: # (## License)
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+[//]: # ()
+[//]: # (Distributed under the MIT License. See `LICENSE.txt` for more information.)
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+[//]: # ()
+[//]: # (<p align="right">&#40;<a href="#readme-top">back to top</a>&#41;</p>)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[//]: # ()
+[//]: # ()
+[//]: # ()
+[//]: # (<!-- CONTACT -->)
 
+[//]: # (## Contact)
 
+[//]: # ()
+[//]: # (Your Name - [@your_twitter]&#40;https://twitter.com/your_username&#41; - email@example.com)
 
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+[//]: # ()
+[//]: # (Project Link: [https://github.com/your_username/repo_name]&#40;https://github.com/your_username/repo_name&#41;)
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+[//]: # ()
+[//]: # (<p align="right">&#40;<a href="#readme-top">back to top</a>&#41;</p>)
 
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+[//]: # ()
+[//]: # ()
+[//]: # ()
+[//]: # (<!-- ACKNOWLEDGMENTS -->)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[//]: # (## Acknowledgments)
+
+[//]: # ()
+[//]: # (Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!)
+
+[//]: # ()
+[//]: # (* [Choose an Open Source License]&#40;https://choosealicense.com&#41;)
+
+[//]: # (* [GitHub Emoji Cheat Sheet]&#40;https://www.webpagefx.com/tools/emoji-cheat-sheet&#41;)
+
+[//]: # (* [Malven's Flexbox Cheatsheet]&#40;https://flexbox.malven.co/&#41;)
+
+[//]: # (* [Malven's Grid Cheatsheet]&#40;https://grid.malven.co/&#41;)
+
+[//]: # (* [Img Shields]&#40;https://shields.io&#41;)
+
+[//]: # (* [GitHub Pages]&#40;https://pages.github.com&#41;)
+
+[//]: # (* [Font Awesome]&#40;https://fontawesome.com&#41;)
+
+[//]: # (* [React Icons]&#40;https://react-icons.github.io/react-icons/search&#41;)
+
+[//]: # ()
+[//]: # (<p align="right">&#40;<a href="#readme-top">back to top</a>&#41;</p>)
 
 
 
