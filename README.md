@@ -178,7 +178,7 @@ Now that you've installed tesseract we can move on with Persian-OCR:_
 
 After installing the requirements you can use it by running the `ocr.py` file:
 ```sh
-python ./ocr.py -i <inputfile>        
+python ./ocr.py -i <inputfile> -o <outputfile>     
 ```
 Then it will write the results to `result.txt`
 
