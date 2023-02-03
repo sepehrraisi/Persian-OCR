@@ -68,7 +68,7 @@ def match_template(image, template):
 def main(inputfile, langs="faen", mode="t"):
     img = cv2.imread(inputfile)
     gray = get_grayscale(img)
-    ## Different Modes for image proccessing 
+## Different Modes for image proccessing
     img = gray
     # gray = deskew(gray)
     # gray = erode(gray)
