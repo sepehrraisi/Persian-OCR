@@ -1,4 +1,5 @@
 venv/
 result.txt
 OCR/__pycache__/
-
+.idea/
+test.txt
