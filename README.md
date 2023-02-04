@@ -164,9 +164,9 @@ Now that you've installed tesseract we can move on with Persian-OCR:_
    python3 -m venv venv && \
    source ./venv/bin/activate
    ```
-3. Install Python modules `requirments.txt`
+3. Install Python modules `requirements.txt`
    ```sh
-   pip install -r requirments.txt
+   pip install -r requirements.txt
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
