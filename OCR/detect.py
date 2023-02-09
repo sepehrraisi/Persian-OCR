@@ -87,8 +87,8 @@ def main(inputfile,outputfile="result.txt", langs="faen", mode="t"):
     gray = get_grayscale(img)
 ## Different Modes for image proccessing
     img = gray
-    # gray = deskew(gray)
-    # gray = erode(gray)
+    # deskew = deskew(gray)
+    # erode = erode(gray)
     # thresh = thresholding(gray)
     # thresh = remove_noise(gray)
     # opening = opening(gray)
