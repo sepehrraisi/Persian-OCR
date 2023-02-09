@@ -101,4 +101,4 @@ def main(inputfile,outputfile="result.txt", langs="faen", mode="t"):
 
 
 if __name__ == "__main__":
-    main("Inputs/1.jpg", "fa", "t")
+    main(inputfile="Inputs/1.jpg", langs="fa", mode="t")
