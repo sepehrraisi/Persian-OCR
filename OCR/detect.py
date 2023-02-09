@@ -136,5 +136,5 @@ def main(inputfile,outputfile="result.txt", langs="faen", mode="t"):
 
 
 if __name__ == "__main__":
-    print(main(inputfile="Inputs/1.jpg", langs="fa", mode="t"))
+    main(inputfile="Inputs/1.jpg", langs="fa", mode="t")
     # print(main(inputfile="test.jpg", langs="fa", mode="tn"))
