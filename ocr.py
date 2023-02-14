@@ -3,8 +3,7 @@ from OCR import detect
 
 def main(argv):
    inputfile = ''
-   outputfile = ''
-   mode = ''
+   outputfile = 'result.txt'
    try:
       opts, args = getopt.getopt(argv,"hi:o:m:",["ifile=","ofile=","mode="])
    except getopt.GetoptError:
@@ -20,6 +19,6 @@ def main(argv):
          outputfile = arg
       elif opt in ("-m", "--mode"):
          mode = arg
-   detect.main(inputfile, outputfile)
+   detect.main(inputfile=inputfile, outputfile=outputfile)
 if __name__ == "__main__":
    main(sys.argv[1:])

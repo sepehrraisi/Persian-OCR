@@ -1,7 +1,10 @@
+from PIL import Image
 import pytesseract
 import numpy as np
 import cv2
+import tempfile
 import io
+
 
 # get grayscale image
 def get_grayscale(image):
@@ -63,27 +66,16 @@ def match_template(image, template):
     return cv2.matchTemplate(image, template, cv2.TM_CCOEFF_NORMED)
 
 
-def main(inputfile,outputfile="result.txt", langs="faen", mode="t"):
-    from PIL import Image
-    import tempfile
-
+def main(inputfile="Inputs/1.jpg", outputfile="result.txt", langs="faen", mode="t"):
     im = Image.open(inputfile)
     length_x, width_y = im.size
-    # factor = min(1, float(1024.0 / length_x))
     factor = float(1024.0 / length_x)
-    # factor = float(2)
-    # size = int()
     size = int(factor * length_x), int(factor * width_y)
-    # size = 1000, 1000
     image_resize = im.resize(size, Image.Resampling.LANCZOS)
-    # temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='1.png')
-    # temp_filename = temp_file.name
-    # im.save("test-600.png", dpi=(300, 300))
-    image_resize.save("test-600.png", dpi=(300, 300))
-
-    img = cv2.imread("test-600.png")
+    image_resize.save(f"{inputfile}_Upscaled.png", dpi=(300, 300))
+    img = cv2.imread(f"{inputfile}_Upscaled.png")
     gray = get_grayscale(img)
-## Different Modes for image proccessing
+    ## Different Modes for image proccessing
     img = gray
     # deskew = deskew(gray)
     # erode = erode(gray)
@@ -91,16 +83,11 @@ def main(inputfile,outputfile="result.txt", langs="faen", mode="t"):
     # thresh = remove_noise(gray)
     # opening = opening(gray)
     # canny = canny(gray)
-
-##Configs for Different OCR configs
-    # custom_config = r'-l faen --psm 6"'
     if langs == "fa":
         if mode == "t":
             custom_config = r'-l fas --psm 6 -c tessedit_char_blacklist="۰١۲۳۴۵۶۷۸۹«»1234567890#"'
-            # custom_config = r'-l fas --psm 6 -c tessedit_char_whitelist="آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی "'
         if mode == "tn":
             custom_config = r'-l fas --psm 6 -c tessedit_char_whitelist="آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ۰١۲۳۴۵۶۷۸۹.?!,،:;/"'
-            # custom_config = r'-l fas --psm 6 -c tessedit_char_whitelist="آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ۰١۲۳۴۵۶۷۸۹"'
         if mode == "table":
             custom_config = r'-l fas --psm 6 -c tessedit_char_whitelist="آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی۰١۲۳۴۵۶۷۸۹"'
     elif langs == "en":
@@ -111,7 +98,6 @@ def main(inputfile,outputfile="result.txt", langs="faen", mode="t"):
         print("Choose valid Options.")
         exit(0)
 
-
     ## Convert Image to Text
     text = pytesseract.image_to_string(img, config=custom_config)
 
@@ -121,4 +107,4 @@ def main(inputfile,outputfile="result.txt", langs="faen", mode="t"):
 
 
 if __name__ == "__main__":
-    main(inputfile="Inputs/1.jpg", langs="fa", mode="t")
+    main()
