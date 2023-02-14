@@ -66,7 +66,7 @@ def match_template(image, template):
     return cv2.matchTemplate(image, template, cv2.TM_CCOEFF_NORMED)
 
 
-def main(inputfile="Inputs/1.jpg", outputfile="result.txt", langs="faen", mode="t"):
+def main(inputfile="Inputs/1.jpg", outputfile="result.txt", langs="fa", mode="tn"):
     im = Image.open(inputfile)
     length_x, width_y = im.size
     factor = float(1024.0 / length_x)
