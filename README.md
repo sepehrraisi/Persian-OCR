@@ -193,7 +193,8 @@ Then it will write the results to `outputfile`
 
 - [x] Use pytesseract to extract text
 - [x] Improve accuracy by simple opencv features
-- [ ] Improve accuracy by UpScaling the images
+- [x] Improve accuracy by UpScaling the images
+- [ ] Add post-processing modules to improve accuracy
 - [ ] Add modular capabilities to improve functionality
 - [ ] Add Table recognition
 - [x] Multi-language Support
