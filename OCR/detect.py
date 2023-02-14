@@ -1,8 +1,6 @@
-from PIL import Image
 import pytesseract
 import numpy as np
 import cv2
-# from Dictionary import spell_check
 import io
 
 # get grayscale image
@@ -120,21 +118,7 @@ def main(inputfile,outputfile="result.txt", langs="faen", mode="t"):
     ## Write Results to Result.txt with UTF-8 Encoding.
     with io.open(outputfile, 'w', encoding='utf8') as f:
         f.write(text)
-    # return text
-## Spell Checking (STILL IN PROGRESS)
-    # print(text.split())
-    # spc = []
-    # for word in text.split():
-    #     # print(word)
-    #     # print(0, spell.correction(word))
-    #     spc.append(spell.correction(word))
-
-## Show Proccessed Image that is being used by pytesseract.
-    # cv2.imshow('image window', img)
-    # cv2.waitKey(0)
-    # cv2.destroyAllWindows()
 
 
 if __name__ == "__main__":
     main(inputfile="Inputs/1.jpg", langs="fa", mode="t")
-    # print(main(inputfile="test.jpg", langs="fa", mode="tn"))
