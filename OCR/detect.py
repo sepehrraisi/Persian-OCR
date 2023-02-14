@@ -64,7 +64,24 @@ def match_template(image, template):
 
 
 def main(inputfile,outputfile="result.txt", langs="faen", mode="t"):
-    img = cv2.imread(inputfile)
+    from PIL import Image
+    import tempfile
+
+    im = Image.open(inputfile)
+    length_x, width_y = im.size
+    # factor = min(1, float(1024.0 / length_x))
+    factor = float(1024.0 / length_x)
+    # factor = float(2)
+    # size = int()
+    size = int(factor * length_x), int(factor * width_y)
+    # size = 1000, 1000
+    image_resize = im.resize(size, Image.Resampling.LANCZOS)
+    # temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='1.png')
+    # temp_filename = temp_file.name
+    # im.save("test-600.png", dpi=(300, 300))
+    image_resize.save("test-600.png", dpi=(300, 300))
+
+    img = cv2.imread("test-600.png")
     gray = get_grayscale(img)
 ## Different Modes for image proccessing
     img = gray
@@ -76,14 +93,16 @@ def main(inputfile,outputfile="result.txt", langs="faen", mode="t"):
     # canny = canny(gray)
 
 ##Configs for Different OCR configs
-    custom_config = r'-l faen --psm 6"'
+    # custom_config = r'-l faen --psm 6"'
     if langs == "fa":
         if mode == "t":
             custom_config = r'-l fas --psm 6 -c tessedit_char_blacklist="۰١۲۳۴۵۶۷۸۹«»1234567890#"'
+            # custom_config = r'-l fas --psm 6 -c tessedit_char_whitelist="آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی "'
         if mode == "tn":
-            custom_config = r'-l fas --psm 6 -c tessedit_char_whitelist="ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ۰١۲۳۴۵۶۷۸۹.?!,،:;/"'
+            custom_config = r'-l fas --psm 6 -c tessedit_char_whitelist="آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ۰١۲۳۴۵۶۷۸۹.?!,،:;/"'
+            # custom_config = r'-l fas --psm 6 -c tessedit_char_whitelist="آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ۰١۲۳۴۵۶۷۸۹"'
         if mode == "table":
-            custom_config = r'-l fas --psm 6 -c tessedit_char_whitelist="ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی ۰١۲۳۴۵۶۷۸۹"'
+            custom_config = r'-l fas --psm 6 -c tessedit_char_whitelist="آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی۰١۲۳۴۵۶۷۸۹"'
     elif langs == "en":
         custom_config = r'-l eng --psm 6'
     elif langs == "faen":
@@ -91,6 +110,7 @@ def main(inputfile,outputfile="result.txt", langs="faen", mode="t"):
     else:
         print("Choose valid Options.")
         exit(0)
+
 
     ## Convert Image to Text
     text = pytesseract.image_to_string(img, config=custom_config)
