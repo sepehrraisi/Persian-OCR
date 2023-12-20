@@ -149,6 +149,11 @@ You need to add Persian Language to tesseract:
   ```sh
    sudo apt-get install tesseract-ocr-fas
   ```
+* Arch
+  ```sh
+   sudo pacman -S tesseract
+  ```
+  and then select **37** to install `tesseract-data-fas`
 
 ### Installation
 
