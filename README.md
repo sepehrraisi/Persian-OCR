@@ -149,6 +149,11 @@ You need to add Persian Language to tesseract:
   ```sh
    sudo apt-get install tesseract-ocr-fas
   ```
+* Arch
+  ```sh
+   sudo pacman -S tesseract
+  ```
+  and then select **37** to install `tesseract-data-fas`
 
 ### Installation
 
@@ -193,7 +198,8 @@ Then it will write the results to `outputfile`
 
 - [x] Use pytesseract to extract text
 - [x] Improve accuracy by simple opencv features
-- [ ] Improve accuracy by UpScaling the images
+- [x] Improve accuracy by UpScaling the images
+- [ ] Add post-processing modules to improve accuracy
 - [ ] Add modular capabilities to improve functionality
 - [ ] Add Table recognition
 - [x] Multi-language Support
